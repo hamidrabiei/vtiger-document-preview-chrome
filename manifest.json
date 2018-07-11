@@ -1,13 +1,23 @@
 {
-	"name": "Getting Started Example",
+	"name": "VTiger Document Preview Extension",
 	"version": "1.0",
-	"description": "Build an Extension!",
+	"description": "Quick way to add Document previews to VTiger",
 
 	"content_scripts": [{
 		"run_at": "document_end",
 		"matches": ["<all_urls>"],
-		"js": ["jquery.js", "background.js"]
+		"js": ["jquery.js", "link_to_preview.js"]
 	}],
+	"permissions": [
+		"webRequest",
+		"webRequestBlocking",
+		"<all_urls>"
+
+	],
+	"background": {
+		"scripts": ["httpObserver.js"]
+	},
+
 	"manifest_version": 2
 }
 
